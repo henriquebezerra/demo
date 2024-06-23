@@ -33,9 +33,10 @@ public class ProjectExceptionHandler extends ResponseEntityExceptionHandler{
     		return handleExceptionInternal(e, error, headers(), HttpStatus.CONFLICT, request);
     	}
     	
-    	String message = messageSource.getMessage("error.server", new Object[]{e.getMessage()}, null);
-    	var error = new ResponseError(message, HttpStatus.INTERNAL_SERVER_ERROR.value());
-    	return handleExceptionInternal(e, error, headers(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+//    	String message = messageSource.getMessage("error.server", new Object[]{e.getMessage()}, null);
+//    	var error = new ResponseError(message, HttpStatus.INTERNAL_SERVER_ERROR.value());
+//    	return handleExceptionInternal(e, error, headers(), HttpStatus.INTERNAL_SERVER_ERROR, request);
+    	return null;
     	
     }
 	

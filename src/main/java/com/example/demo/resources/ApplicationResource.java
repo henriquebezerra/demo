@@ -1,10 +1,12 @@
 package com.example.demo.resources;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,8 +68,11 @@ public class ApplicationResource {
 	}
 	
 	@GetMapping("/users")
-	public ResponseEntity<List<Usuario>> getUsuarios(){
-		return ResponseEntity.ok(usuarioService.getAllUsers());
+	public ResponseEntity<List<UsuarioDTO>> getUsuarios(){
+		var listDto = usuarioService.getAllUsers().stream()
+				.map(user -> UsuarioDTO.fromEntity(user, false))
+					.collect(Collectors.toList());
+		return ResponseEntity.ok(listDto);
 	}
 	
 	@GetMapping("/users/{id}")
