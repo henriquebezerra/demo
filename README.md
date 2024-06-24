@@ -1,3 +1,5 @@
+# VERSÃO MÍNIMA DO JAVA PARA RODAR 17.0
+
 # DESAFIO JAVA PITANG BACKEND
 
 Este projeto tem como finalidade desenvolver uma API RESTfull para Sistema de Usuários de Carros
